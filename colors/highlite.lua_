@@ -10,7 +10,7 @@
 local vim = vim
 
 
-vim.g.colors_name = 'redblack'
+vim.g.colors_name = 'highlite'
 local BG = 'bg'
 local FG = 'fg'
 local NONE = {}
@@ -143,7 +143,7 @@ local purple       = {'#cf55f0', 171, 'magenta'}
 local purple_light = {'#af60af', 133, 'darkmagenta'}
 
 
-local highlight_group_normal = {fg=gray_light, bg=NONE}
+local highlight_group_normal = {fg=white, bg=NONE}
 
 local highlight_groups = {
 	--[[ 4.1. Text Analysis ]]
@@ -154,7 +154,7 @@ local highlight_groups = {
 
 	--[[ 4.1.1. Literals]]
 	Constant = {fg=red},
-	String = {fg=orange},
+	String = {fg=orange, style = "bold"},
 	Character = {fg=red_light},
 	Number  = {fg=orange},
 	Boolean = {fg=orange},
@@ -162,21 +162,21 @@ local highlight_groups = {
 
 	--[[ 4.1.2. Identifiers]]
 	Identifier = {fg=FG},
-	Function = {fg=magenta_dark},
+	Function = {fg=pink},
 
 	--[[ 4.1.3. Syntax]]
-	Statement   = {fg=ice},
-	Conditional = {fg=ice},
-	Repeat   = {fg=turqoise},
+	Statement   = {fg=red},
+	Conditional = {fg=red},
+	Repeat   = {fg=red},
 	Label    = {fg=pink, style='bold'},
-	Operator = {fg=green, style='bold'},
-	Keyword  = {fg=teal},
+	Operator = {fg=red, style='bold'},
+	Keyword  = {fg=red},
 	Exception = {fg=red_light, style='bold'},
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
 	PreProc = {fg=tan},
-	Include = {fg=green_light, style='nocombine'},
+	Include = {fg=ice, style='nocombine'},
 	Define = {fg=blue, style='nocombine'},
 	Macro  = {fg=blue},
 	PreCondit = {fg=tan},
@@ -218,7 +218,7 @@ local highlight_groups = {
 	TabLineFill = function(self) return {fg=self.TabLine.bg, bg=black} end,
 	TabLineSel = function(self) return {fg=self.TabLine.fg, bg=highlight_group_normal.bg} end,
 	Title = {style='bold'},
-	VertSplit = {fg=white},
+	VertSplit = {fg=red},
 
 	--[[ 4.2.3. Conditional Line Highlighting]]
 	Conceal = 'NonText',

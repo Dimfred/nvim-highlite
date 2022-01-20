@@ -1,155 +1,43 @@
--- This file should be edited by the user. Read the instructions of each section and then edit them as desired.
-
 --[[ Highlite, a Neovim colorscheme template.
 	* Author:     Iron-E (https://github.com/Iron-E)
 	* Repository: https://github.com/nvim-highlite
-
 	Initially forked from vim-rnb, a Vim colorsheme template:
 	* Author:        Romain Lafourcade (https://github.com/romainl)
 	* Canonical URL: https://github.com/romainl/vim-rnb
 ]]
-
---[[ Introduction
-	This template is designed to help Neovim users create their own colorschemes without much effort.
-
-	You will not need any additional tooling to run this file. Just open it in Neovim and follow the instructions.
-
-	The process is divided in five steps:
-	1. Rename the template,
-	2. Edit your colorscheme's information,
-	3. Define your colors,
-	4. Define your highlight groups and links, and
-	5. Sourcing your colorscheme.
-]]
-
---[[ Step 1: Renaming
-	* If this file is distributed with a colorscheme it's probably already named correctly
-	  and you can skip this step.
-	* If you forked/cloned/copied this repository to create your own colorscheme, you will have to
-	  rename this template to match the name of your colorscheme.
-
-	NOTE: Neovim doesn't really care about whitespace in the name of the colorscheme but it does for
-	filenames so make sure your filename doesn't have any whitespace character.
-
-	| colorscheme name  | module name | template filename |
-	|:-----------------:|:-----------:|:-----------------:|
-	| foobar            | foobar      | foobar.lua        |
-	| foo-bar           | foo_bar     | foo_bar.lua       |
-	| foo bar           | foo_bar     | foo_bar.lua       |
-	| foo_bar           | foo_bar     | foo_bar.lua       |
-
-	Rename the following files:
-	* `colors/highlite.vim`
-	* `lua/highlite.lua`
-
-	Where 'highlite' is the name of your colorscheme.
-
-	TIP: If you are on a Unix-based system (or have WSL on Windows) you can use the setup script at the root of this repo.
-	     See the README for more details.
-]]
+-- Thanks to Romain Lafourcade (https://github.com/romainl) for the original template (romainl/vim-rnb).
+--
+local vim = vim
 
 
---[[ Step 2: Information
-	In this step you will define information that helps Neovim process:
-
-	1. How users access your colorscheme;
-	2. How your colorscheme should be rendered.
-]]
-
--- This is the name of your colorscheme which will be used as per |g:colors_name|.
 vim.g.colors_name = 'highlite'
+local BG = 'bg'
+local FG = 'fg'
+local NONE = {}
 
---[[ Step 3: Colors
-	Next you will define all of the colors that you will use for the color scheme.
-
-	Each one should be made up of three parts:
-
-```lua
-	<color name> = { -- Give each color a distinctive name.
-		'#<hex color code>', -- Hexadecimal color used in GVim/MacVim or 'NONE'.
-		<16-bit color code>, -- Integer 0–255 used by terminals supporting 256 colors or 'NONE'.
-		'<ANSI color name>'  -- color name used by less capable color terminals, can be 'darkred',
-		                       'red', 'darkgreen', 'green', 'darkyellow', 'yellow', 'darkblue',
-		                       'blue', 'darkmagenta', 'magenta', 'black', 'darkgrey', 'grey',
-		                       'white', or 'NONE'
-	}
-```
-
-	NOTE: See https://gist.github.com/gagbo/7943c9a71cab22b641d2904a6d59ec3a
-	      for a program that can generate 16-bit colors from a Hex code.
-
-	If your colors are defined correctly, the resulting colorscheme is guaranteed
-	to work in GVim (Windows/Linux), MacVim (MacOS), and any properly set up terminal
-	emulator.
-
-	NOTE: |Replace-mode| will probably be useful here.
-]]
-
-local black       = {'#202020', 235, 'black'}
-local gray        = {'#808080', 244, 'gray'}
-local gray_dark   = {'#353535', 236, 'darkgrey'}
-local gray_darker = {'#505050', 239, 'gray'}
-local gray_light  = {'#c0c0c0', 250, 'gray'}
-local white       = {'#ffffff', 231, 'white'}
-
-local tan = {'#f4c069', 221, 'yellow'}
-
-local red       = {'#ee4a59', 203, 'red'}
-local red_dark  = {'#a80000', 124, 'darkred'}
-local red_light = {'#ff4090', 205, 'red'}
-
-local orange       = {'#ff8900', 208, 'darkyellow'}
-local orange_light = {'#f0af00', 214, 'darkyellow'}
-
-local yellow = {'#f0df33', 227, 'yellow'}
-
-local green_dark  = {'#70d533', 113, 'darkgreen'}
-local green       = {'#22ff22', 46,  'green'}
-local green_light = {'#99ff99', 120, 'green'}
-local turqoise    = {'#2bff99', 48,  'green'}
-
-local blue = {'#7766ff', 63,  'darkblue'}
-local cyan = {'#33dbc3', 80,  'cyan'}
-local ice  = {'#95c5ff', 111, 'cyan'}
-local teal = {'#60afff', 75,  'blue'}
-
-local magenta      = {'#d5508f', 168, 'magenta'}
-local magenta_dark = {'#bb0099', 126, 'darkmagenta'}
-local pink         = {'#ffa6ff', 219, 'magenta'}
-local pink_light   = {'#ffb7b7', 217, 'white'}
-local purple       = {'#cf55f0', 171, 'magenta'}
-local purple_light = {'#af60af', 133, 'darkmagenta'}
 
 --[[ Step 4: highlights
 	You can define highlight groups like this:
-
 ```lua
 	<highlight group name> = {
 		-- The color for the background, `NONE`, `FG` or `BG`
 		bg = <color>,
-
 		-- The color for the foreground, `NONE`, `FG` or `BG`
 		fg = <color>
-
 		-- The |highlight-blend| value, if one is desired.
 		[, blend = <integer>]
-
 		-- Style can be 'bold', 'italic', and more. See |attr-list| for more information.
 		-- It can also have a color, and/or multiple <cterm>s.
 		[, style = <cterm>|{<cterm> (, <cterm>) [color=<color>]} ]
 	}
 ```
-
 	You can also link one highlight group to another:
-
 ```lua
 	<highlight group name> = '<highlight group name>'
 ```
 	____________________________________________________________________________
-
 	Here is an example to define `SpellBad` and then link some new group
 	`SpellWorse` to it:
-
 ```lua
 	SpellBad = { -- ← name of the highlight group
 		bg=NONE, -- background color
@@ -161,10 +49,8 @@ local purple_light = {'#af60af', 133, 'darkmagenta'}
 	},
 	SpellWorse = 'SpellBad'
 ```
-
 	If you weren't satisfied with undercurl, and also wanted another effect, you can
 	add another one below 'undercurl' and it will be applied as well:
-
 ```lua
 	SpellBad = { -- ← name of the highlight group
 		bg=NONE, -- background color
@@ -177,11 +63,9 @@ local purple_light = {'#af60af', 133, 'darkmagenta'}
 	}
 ```
 	____________________________________________________________________________
-
 	If you want to create a colorscheme that is responsive to the user's
 	'background' setting, you can specify special `light` and `dark` keys to
 	define how each group should be highlighted in each case.
-
 ```lua
 	SpellBad = {
 		bg=NONE,
@@ -190,25 +74,20 @@ local purple_light = {'#af60af', 133, 'darkmagenta'}
 		style={'undercurl', color=red}
 	}
 ```
-
 	Whenever the user changes their 'background' setting, the settings inside of
 	whichever key is relevant will be loaded.
 	____________________________________________________________________________
-
 	You can add any custom highlight group to the standard list below but you
 	shouldn't remove any if you want a working colorscheme. Most of them are
 	described under |highlight-default|, some from |group-name|, and others from
 	common syntax groups.  Both help sections are good reads.
 	____________________________________________________________________________
-
 	If you want to inherit a specific attribute of another highlight group, you
 	can do the following:
-
 ```lua
 	SpellBad = function(self)
 		local inherited_style = self.SpellRare.style
 		inherited_style.color = red
-
 		return {
 			bg=NONE,
 			fg=NONE,
@@ -216,76 +95,101 @@ local purple_light = {'#af60af', 133, 'darkmagenta'}
 		}
 	end
 ```
-
 	The function will be executed by |highlite| and transformed into the
 	expected result.
 	____________________________________________________________________________
-
 	NOTE: |Replace-mode| will probably be useful here.
-
 	NOTE: /As long as you do not remove any highlight groups or colors/, you can
 	      safely ignore any highlight groups that are `link`ed to others.
-
 	      For example, programming languages almost exclusively link to the 1st
 	      and 2nd sections, so as long as you define everything there you will
 	      automatically be defining the rest of the highlights, which is one of
 	      the benefits of using this template.
 ]]
 
---[[ DO NOT EDIT `BG` NOR `FG`. ]]
-local BG = 'bg'
-local FG = 'fg'
-local NONE = {}
+local black         = {'#202020', 235, 'black'}
+local gray          = {'#808080', 244, 'gray'}
+local gray_dark     = {'#353535', 236, 'darkgrey'}
+local gray_darker   = {'#505050', 239, 'gray'}
+local gray_light    = {'#c0c0c0', 250, 'gray'}
+local white         = {'#ffffff', 231, 'white'}
 
---[[ These are the ones you should edit. ]]
--- This is the only highlight that must be defined separately.
-local highlight_group_normal = {fg=gray_light, bg=NONE}
--- This is where the rest of your highlights should go.
+local tan           = {'#f4c069', 221, 'yellow'}
+
+local red_dark      = {'#a80000', 124, 'darkred'}
+local red           = {'#fc0303', 203, 'red'}
+local red_light     = {'#f2483f', 205, 'red'}
+
+local orange        = {'#ff8900', 208, 'darkyellow'}
+local orange_light  = {'#f0af00', 214, 'darkyellow'}
+
+local yellow        = {'#fac32a', 227, 'yellow'}
+
+local green_dark    = {'#70d533', 113, 'darkgreen'}
+local green         = {'#22ff22', 46,  'green'}
+local green_light   = {'#99ff99', 120, 'green'}
+local turqoise      = {'#2bff99', 48,  'green'}
+
+local blue          = {'#7766ff', 63,  'darkblue'}
+local cyan          = {'#33dbc3', 80,  'cyan'}
+local ice           = {'#95c5ff', 111, 'cyan'}
+local teal          = {'#60afff', 75,  'blue'}
+
+local magenta      = {'#d5508f', 168, 'magenta'}
+local magenta_dark = {'#bb0099', 126, 'darkmagenta'}
+local pink         = {'#ffa6ff', 219, 'magenta'}
+local pink_light   = {'#ffb7b7', 217, 'white'}
+local purple       = {'#cf55f0', 171, 'magenta'}
+local purple_light = {'#af60af', 133, 'darkmagenta'}
+
+
+local highlight_group_normal = {fg=white, bg=NONE}
+
 local highlight_groups = {
 	--[[ 4.1. Text Analysis ]]
-	Comment = {fg=gray, style='italic'},
+	Comment = {fg=gray},
 	NonText = {fg=gray_darker},
 	EndOfBuffer = 'NonText',
 	Whitespace  = 'NonText',
 
 	--[[ 4.1.1. Literals]]
-	Constant = {fg=orange_light},
-	String = {fg=green_dark},
+	Constant = {fg=red},
+	String = {fg=orange, style = "bold"},
 	Character = {fg=red_light},
-	Number  = {fg=pink_light},
-	Boolean = {fg=yellow},
+	Number  = {fg=orange},
+	Boolean = {fg=orange},
 	Float   = 'Number',
 
 	--[[ 4.1.2. Identifiers]]
 	Identifier = {fg=FG},
-	Function = {fg=purple},
+	Function = {fg=pink},
 
 	--[[ 4.1.3. Syntax]]
-	Statement   = {fg=ice},
-	Conditional = {fg=ice, style='italic'},
-	Repeat   = {fg=turqoise, style='italic'},
+	Statement   = {fg=red},
+	Conditional = {fg=red},
+	Repeat   = {fg=red},
 	Label    = {fg=pink, style='bold'},
-	Operator = {fg=green, style='bold'},
-	Keyword  = {fg=teal},
+	Operator = {fg=red, style='bold'},
+	Keyword  = {fg=red},
 	Exception = {fg=red_light, style='bold'},
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
 	PreProc = {fg=tan},
-	Include = {fg=green_light, style='nocombine'},
+	Include = {fg=ice, style='nocombine'},
 	Define = {fg=blue, style='nocombine'},
-	Macro  = {fg=blue, style='italic'},
-	PreCondit = {fg=tan, style='italic'},
+	Macro  = {fg=blue},
+	PreCondit = {fg=tan},
 
 	--[[ 4.1.5. Semantics]]
 	Type         = {fg=cyan},
 	StorageClass = {fg=orange_light, style='bold'},
 	Structure = {fg=blue, style='bold'},
-	Typedef = {fg=cyan, style='italic'},
+	Typedef = {fg=cyan},
 
 	--[[ 4.1.6. Edge Cases]]
 	Special = {fg=magenta, style='bold'},
-	SpecialChar = {fg=red_light, style='italic'},
+	SpecialChar = {fg=red_light},
 	SpecialKey = 'Character',
 	Tag = 'Underlined',
 	Delimiter = {fg=white},
@@ -314,7 +218,7 @@ local highlight_groups = {
 	TabLineFill = function(self) return {fg=self.TabLine.bg, bg=black} end,
 	TabLineSel = function(self) return {fg=self.TabLine.fg, bg=highlight_group_normal.bg} end,
 	Title = {style='bold'},
-	VertSplit = {fg=white},
+	VertSplit = {fg=red},
 
 	--[[ 4.2.3. Conditional Line Highlighting]]
 	Conceal = 'NonText',
@@ -336,7 +240,7 @@ local highlight_groups = {
 
 	--[[ 4.2.5. Folds]]
 	FoldColumn = {bg=gray_darker, style='bold'},
-	Folded = {fg=black,  bg=purple_light, style='italic'},
+	Folded = {fg=black,  bg=purple_light},
 
 	--[[ 4.2.6. Diffs]]
 	DiffAdd    = {fg=black, bg=green_dark},
@@ -361,8 +265,8 @@ local highlight_groups = {
 
 	--[[ 4.2.10. Messages]]
 	ErrorMsg = {fg=red, style='bold'},
-	HintMsg  = {fg=magenta, style='italic'},
-	InfoMsg  = {fg=pink_light, style='italic'},
+	HintMsg  = {fg=magenta},
+	InfoMsg  = {fg=pink_light},
 	ModeMsg  = {fg=yellow},
 	WarningMsg = {fg=orange, style='bold'},
 	Question   = {fg=orange_light, style='underline'},
@@ -495,7 +399,7 @@ local highlight_groups = {
 	scssElse           = 'scssIf',
 	scssMixinName      = function(self)
 		local super = self.cssClassName
-		return {bg=super.bg, fg=super.fg, style='Italic'}
+		return {bg=super.bg, fg=super.fg}
 	end,
 	scssIf             = 'PreCondit',
 	scssInclude        = 'Include',
@@ -590,7 +494,7 @@ local highlight_groups = {
 	luaSpecialValue = 'Function',
 	luaStringLongTag = function(self)
 		local delimiter = self.Delimiter
-		return {bg=delimiter.bg, fg=delimiter.fg, style='italic'}
+		return {bg=delimiter.bg, fg=delimiter.fg}
 	end,
 
 	--[[ 4.3.12. Make ]]
@@ -622,10 +526,10 @@ local highlight_groups = {
 	mkdRule = function(self) return {fg=self.Ignore.fg, style={'underline', color=self.Delimiter.fg}} end,
 
 	--[[ 4.3.20. Python ]]
-	pythonBrackets    = 'Delimiter',
-	pythonBuiltinFunc = 'Operator',
-	pythonBuiltinObj  = 'Type',
-	pythonBuiltinType = 'Type',
+	pythonBrackets    = blue,
+	pythonBuiltinFunc = yellow,
+	pythonBuiltinObj  = red,
+	pythonBuiltinType = red,
 	pythonClass       = 'Structure',
 	pythonClassParameters = 'pythonParameters',
 	pythonDecorator  = 'PreProc',
@@ -878,7 +782,7 @@ local highlight_groups = {
 
 	BufferVisible       = 'TabLine',
 	BufferVisibleIndex  = function(self) return {fg=self.InfoMsg.fg, bg=self.BufferVisible.bg} end,
-	BufferVisibleMod    = function(self) return {fg=white, bg=self.BufferVisible.bg, style='italic'} end,
+	BufferVisibleMod    = function(self) return {fg=white, bg=self.BufferVisible.bg} end,
 	BufferVisibleSign   = 'BufferVisible',
 	BufferVisibleTarget = function(self)
 		local super = self.BufferVisibleMod
@@ -911,7 +815,7 @@ local highlight_groups = {
 	TodoFgHACK = function(self) return {fg=self.Todo.bg} end,
 	TodoFgNOTE = 'HintMsg',
 	TodoFgPERF = 'InfoMsg',
-	TodoFgTODO = {fg=cyan, style='italic'},
+	TodoFgTODO = {fg=cyan},
 	TodoFgWARN = function(self) return {fg=self.WarningMsg.fg} end,
 
 	TodoBgFIX = function(self) return {fg=black, bg=self.ErrorMsg.fg, style={'bold', 'italic', 'nocombine'}} end,
@@ -984,14 +888,11 @@ local highlight_groups = {
 	or in TUI Vim when 'termguicolors' is enabled. If this list
 	is empty or if it doesn't contain exactly 16 items, the corresponding
 	Vim variable won't be set.
-
 	The expected values are colors defined in step 3.
-
 	Terminal emulators use a basic palette of 16 colors that can be
 	addressed by CLI and TUI tools via their name or their index, from
 	0 to 15. The list is not really standardized but it is generally
 	assumed to look like this:
-
 	 | Index  | Name          |
 	 |:------:|:-------------:|
 	 | 1      | black         |
@@ -1010,7 +911,6 @@ local highlight_groups = {
 	 | 14     | magenta       |
 	 | 15     | cyan          |
 	 | 16     | white         |
-
 	While you are certainly free to make colors 0 to 7 shades of blue,
 	this will inevitably cause usability issues so… be careful.
 ]]
@@ -1038,9 +938,7 @@ local terminal_colors = {
 	When you wish to load your colorscheme, simply add this folder with a plugin manager
 	and then use `colorscheme <your colorscheme name>`. For example, in my configuration,
 	I source highlite by using `colorscheme highlite`.
-
 	These online resources can help you design your colorscheme:
-
 	1. the xterm palette.
 		* http://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
 	2. play with hexadecimal colors right in the address bar (currently down).
@@ -1065,9 +963,7 @@ local terminal_colors = {
 		* http://vrl.cs.brown.edu/color
 	12. 'I Made My Own Colour Scheme and You Can Too!'.
 		* https://cmcenroe.me/2018/04/03/colour-scheme.html
-
 	A few things to note:
-
 	* The Windows console (`cmd`) is limited to the 16 so-called 'ANSI' colors but it used to
 			have a few of them interverted which makes numbers impractical. Use color names
 			instead of numbers: :help cterm-colors
@@ -1100,4 +996,3 @@ require(vim.g.colors_name)(
 	terminal_colors
 )
 
--- Thanks to Romain Lafourcade (https://github.com/romainl) for the original template (romainl/vim-rnb).
