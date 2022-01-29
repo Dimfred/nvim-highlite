@@ -107,40 +107,48 @@ local NONE = {}
 	      the benefits of using this template.
 ]]
 
-local black         = {'#202020', 235, 'black'}
-local gray          = {'#808080', 244, 'gray'}
-local gray_dark     = {'#353535', 236, 'darkgrey'}
-local gray_darker   = {'#505050', 239, 'gray'}
-local gray_light    = {'#c0c0c0', 250, 'gray'}
-local white         = {'#ffffff', 231, 'white'}
+local black         = { "#0d0d0d", 0, "black" }
+local gray          = { "#808080", 0, "grey" }
+local yellow        = { "#FAF607", 0, "yellow" }
+local orange        = { "#ff8900", 208, "darkyellow"}
+local red           = { "#df340b", 0, "red" }
+local white         = { "#ffffff", 231, "white"}
 
-local tan           = {'#f4c069', 221, 'yellow'}
+local purple        = { "#9C0F61", 0, "purple" }
 
-local red_dark      = {'#a80000', 124, 'darkred'}
-local red           = {'#fc0303', 203, 'red'}
-local red_light     = {'#f2483f', 205, 'red'}
+-- local black         = {'#202020', 235, 'black'}
+-- local gray          = {'#808080', 244, 'gray'}
+-- local gray_dark     = {'#353535', 236, 'darkgrey'}
+-- local gray_darker   = {'#505050', 239, 'gray'}
+-- local gray_light    = {'#c0c0c0', 250, 'gray'}
+-- local white         = {'#ffffff', 231, 'white'}
 
-local orange        = {'#ff8900', 208, 'darkyellow'}
-local orange_light  = {'#f0af00', 214, 'darkyellow'}
+-- local tan           = {'#f4c069', 221, 'yellow'}
 
-local yellow        = {'#fac32a', 227, 'yellow'}
+-- local red_dark      = {'#a80000', 124, 'darkred'}
+-- local red           = {'#fc0303', 203, 'red'}
+-- local red_light     = {'#f2483f', 205, 'red'}
 
-local green_dark    = {'#70d533', 113, 'darkgreen'}
-local green         = {'#22ff22', 46,  'green'}
-local green_light   = {'#99ff99', 120, 'green'}
-local turqoise      = {'#2bff99', 48,  'green'}
+-- local orange_light  = {'#f0af00', 214, 'darkyellow'}
 
-local blue          = {'#7766ff', 63,  'darkblue'}
-local cyan          = {'#33dbc3', 80,  'cyan'}
-local ice           = {'#95c5ff', 111, 'cyan'}
-local teal          = {'#60afff', 75,  'blue'}
+-- local yellow        = {'#fac32a', 227, 'yellow'}
 
-local magenta      = {'#d5508f', 168, 'magenta'}
-local magenta_dark = {'#bb0099', 126, 'darkmagenta'}
-local pink         = {'#ffa6ff', 219, 'magenta'}
-local pink_light   = {'#ffb7b7', 217, 'white'}
-local purple       = {'#cf55f0', 171, 'magenta'}
-local purple_light = {'#af60af', 133, 'darkmagenta'}
+-- local green_dark    = {'#70d533', 113, 'darkgreen'}
+-- local green         = {'#22ff22', 46,  'green'}
+-- local green_light   = {'#99ff99', 120, 'green'}
+-- local turqoise      = {'#2bff99', 48,  'green'}
+
+-- local blue          = {'#7766ff', 63,  'darkblue'}
+-- local cyan          = {'#33dbc3', 80,  'cyan'}
+-- local ice           = {'#95c5ff', 111, 'cyan'}
+-- local teal          = {'#60afff', 75,  'blue'}
+
+-- local magenta      = {'#d5508f', 168, 'magenta'}
+-- local magenta_dark = {'#bb0099', 126, 'darkmagenta'}
+-- local pink         = {'#ffa6ff', 219, 'magenta'}
+-- local pink_light   = {'#ffb7b7', 217, 'white'}
+-- local purple       = {'#cf55f0', 171, 'magenta'}
+-- local purple_light = {'#af60af', 133, 'darkmagenta'}
 
 
 local highlight_group_normal = {fg=white, bg=NONE}
@@ -148,44 +156,44 @@ local highlight_group_normal = {fg=white, bg=NONE}
 local highlight_groups = {
 	--[[ 4.1. Text Analysis ]]
 	Comment = {fg=gray},
-	NonText = {fg=gray_darker},
+	NonText = {fg=gray},
 	EndOfBuffer = 'NonText',
 	Whitespace  = 'NonText',
 
 	--[[ 4.1.1. Literals]]
 	Constant = {fg=red},
 	String = {fg=orange, style = "bold"},
-	Character = {fg=red_light},
+	Character = {fg=red},
 	Number  = {fg=orange},
 	Boolean = {fg=orange},
 	Float   = 'Number',
 
 	--[[ 4.1.2. Identifiers]]
-	Identifier = {fg=FG},
-	Function = {fg=pink},
+	Identifier = {fg=orange},
+	Function = {fg=purple},
 
 	--[[ 4.1.3. Syntax]]
 	Statement   = {fg=red},
 	Conditional = {fg=red},
 	Repeat   = {fg=red},
-	Label    = {fg=pink, style='bold'},
+	Label    = {fg=red, style='bold'},
 	Operator = {fg=red, style='bold'},
 	Keyword  = {fg=red},
-	Exception = {fg=red_light, style='bold'},
+	Exception = {fg=red, style='bold'},
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
-	PreProc = {fg=tan},
-	Include = {fg=ice, style='nocombine'},
-	Define = {fg=blue, style='nocombine'},
-	Macro  = {fg=blue},
-	PreCondit = {fg=tan},
+	PreProc = {fg=red},
+	Include = {fg=red, style='nocombine'},
+	Define = {fg=red, style='nocombine'},
+	Macro  = {fg=red},
+	PreCondit = {fg=red},
 
 	--[[ 4.1.5. Semantics]]
-	Type         = {fg=cyan},
-	StorageClass = {fg=orange_light, style='bold'},
-	Structure = {fg=blue, style='bold'},
-	Typedef = {fg=cyan},
+	Type         = {fg=yellow},
+	StorageClass = {fg=yellow, style='bold'},
+	Structure = {fg=red, style='bold'},
+	Typedef = {fg=purple},
 
 	--[[ 4.1.6. Edge Cases]]
 	Special = {fg=magenta, style='bold'},
@@ -214,9 +222,9 @@ local highlight_groups = {
 
 	--[[ 4.2.2. Separators]]
 	FloatBorder = {fg=gray},
-	TabLine = function(self) return {fg=FG, bg=self.StatusLine.bg} end,
-	TabLineFill = function(self) return {fg=self.TabLine.bg, bg=black} end,
-	TabLineSel = function(self) return {fg=self.TabLine.fg, bg=highlight_group_normal.bg} end,
+	TabLine = function(self) return {fg=red, bg=black} end,
+	TabLineFill = function(self) return {fg=black, bg=black} end,
+	TabLineSel = function(self) return {fg=black, bg=red} end,
 	Title = {style='bold'},
 	VertSplit = {fg=red},
 
@@ -265,11 +273,11 @@ local highlight_groups = {
 
 	--[[ 4.2.10. Messages]]
 	ErrorMsg = {fg=red, style='bold'},
-	HintMsg  = {fg=magenta},
-	InfoMsg  = {fg=pink_light},
+	HintMsg  = {fg=purple},
+	InfoMsg  = {fg=purple},
 	ModeMsg  = {fg=yellow},
 	WarningMsg = {fg=orange, style='bold'},
-	Question   = {fg=orange_light, style='underline'},
+	Question   = {fg=orange, style='underline'},
 
 	--[[ 4.2.11. LSP / Diagnostics ]]
 	DiagnosticError = 'Error',
@@ -289,8 +297,8 @@ local highlight_groups = {
 	DiagnosticSignInfo = 'DiagnosticFloatingInfo',
 
 	DiagnosticUnderlineError = {style={'undercurl', color=red}},
-	DiagnosticUnderlineHint  = {style={'undercurl', color=magenta}},
-	DiagnosticUnderlineInfo  = {style={'undercurl', color=pink_light}},
+	DiagnosticUnderlineHint  = {style={'undercurl', color=purple}},
+	DiagnosticUnderlineInfo  = {style={'undercurl', color=purple}},
 	DiagnosticUnderlineWarn = {style={'undercurl', color=orange}},
 
 	LspDiagnosticsDefaultError = 'DiagnosticError',
@@ -328,10 +336,16 @@ local highlight_groups = {
 		missing.
 	]]
 	--[[ 4.3.1. C ]]
+    cType = red,
 	cConstant    = 'Constant',
 	cCustomClass = 'Type',
+    cFunction = white,
 
 	--[[ 4.3.2. C++ ]]
+    cCustomTemplate = orange,
+    cCustomClassName = orange,
+    cppStatement = red,
+    cppStructure = red,
 	cppSTLexception = 'Exception',
 	cppSTLnamespace = 'String',
 
@@ -505,11 +519,11 @@ local highlight_groups = {
 	markdownCode = 'mkdCode',
 	markdownCodeDelimiter = 'mkdCodeDelimiter',
 	markdownH1 = {fg=red, style='bold'},
-	markdownH2 = {fg=orange, style='bold'},
-	markdownH3 = {fg=yellow, style='bold'},
-	markdownH4 = {fg=green_dark, style='bold'},
-	markdownH5 = {fg=cyan, style='bold'},
-	markdownH6 = {fg=purple_light, style='bold'},
+	markdownH2 = {fg=red, style='bold'},
+	markdownH3 = {fg=red, style='bold'},
+	markdownH4 = {fg=red, style='bold'},
+	markdownH5 = {fg=red, style='bold'},
+	markdownH6 = {fg=red, style='bold'},
 	markdownLinkDelimiter = 'Delimiter',
 	markdownLinkTextDelimiter = 'markdownLinkDelimiter',
 	markdownUrl = 'Underlined',
@@ -526,15 +540,15 @@ local highlight_groups = {
 	mkdRule = function(self) return {fg=self.Ignore.fg, style={'underline', color=self.Delimiter.fg}} end,
 
 	--[[ 4.3.20. Python ]]
-	pythonBrackets    = blue,
-	pythonBuiltinFunc = yellow,
+	pythonBrackets    = orange,
+	pythonBuiltinFunc = {fg=yellow, style="bold"},
 	pythonBuiltinObj  = red,
 	pythonBuiltinType = red,
-	pythonClass       = 'Structure',
-	pythonClassParameters = 'pythonParameters',
-	pythonDecorator  = 'PreProc',
+	pythonClass       = red,
+	pythonClassParameters = white,
+	pythonDecorator  = orange,
 	pythonDottedName = 'Identifier',
-	pythonError     = 'Error',
+	pythonError     = red,
 	pythonException = 'Exception',
 	pythonInclude   = 'Include',
 	pythonIndentError = 'pythonError',
@@ -758,11 +772,11 @@ local highlight_groups = {
 	--[[ 4.4.8. nvim-treesitter ]]
 	TSConstBuiltin = 'Constant',
 	TSConstructor  = 'Typedef',
-	TSFuncBuiltin  = 'Function',
+	TSFuncBuiltin  = red,
 	TSStringEscape = 'Character',
 	TSStringRegex  = 'SpecialChar',
 	TSURI = 'Tag',
-	TSVariableBuiltin = 'Identifier',
+	TSVariableBuiltin = red,
 
 	--[[ 4.4.9. barbar.nvim ]]
 	BufferCurrent       = 'TabLineSel',
