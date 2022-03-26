@@ -803,7 +803,22 @@ local highlight_groups = {
     NvimTreeGitRenamed = function(self)
         return {fg = self.DiffChange.bg, bg = NONE}
     end,
-    NvimTreeGitStaged = {fg = cyan, bg = NONE}
+    NvimTreeGitStaged = {fg = cyan, bg = NONE},
+    --[[ 4.4.19 telescope.nvim ]]
+    TelescopeNormal = {fg = red, bg = black},
+    TelescopeBorder = {fg = red, bg = black},
+    -- prompt
+    TelescopePromptNormal = {fg = red, bg = black},
+    TelescopePromptTitle = {fg = red, bg = black},
+    -- TelescopePromptBorder = {fg=red},
+    -- TelescopePromptPrefix = {}
+    -- preview
+    TelescopePreviewNormal = {},
+    TelescopePreviewTitle = {fg = red, bg = black},
+    -- TelescopePreviewBorder = {}
+    -- results
+    TelescopeResultsTitle = {fg = red, bg = black}
+    -- TelescopeSelection = {}
 }
 
 --[[ Step 5: Terminal Colors
