@@ -214,15 +214,13 @@ local highlight_groups = {
     StatusLineTermNC = "StatusLineNC",
     --[[ 4.2.2. Separators]]
     FloatBorder = {fg = gray},
-    TabLine = function(self)
-        return {fg = red, bg = black}
-    end,
-    TabLineFill = function(self)
-        return {fg = black, bg = black}
-    end,
-    TabLineSel = function(self)
-        return {fg = black, bg = red}
-    end,
+    TabLine = {fg = red, bg = black},
+    TabLineFill = {fg = black, bg = black},
+    TabLineSel = {fg = black, bg = red},
+    TabLineSeparatorActive = {fg = black},
+    TabLineSeparatorInactive = {fg = red},
+    TabLineIconActive = {fg = black},
+    TabLineIconInactive = {fg = red},
     Title = {style = "bold"},
     VertSplit = {fg = red},
     --[[ 4.2.3. Conditional Line Highlighting]]
@@ -823,7 +821,7 @@ local highlight_groups = {
     -- [[ 4.4.19. nvim-web-devicons ]]
     DevIconLua = {guifg = red},
     LuaDevIcon = {guifg = red},
-    IconNameDevicon = {guifg=red},
+    IconNameDevicon = {guifg = red}
 }
 
 --[[ Step 5: Terminal Colors
@@ -857,25 +855,25 @@ assumed to look like this:
 While you are certainly free to make colors 0 to 7 shades of blue,
 this will inevitably cause usability issues so… be careful.
 ]]
-local terminal_colors = {}
--- local terminal_colors = {
---     [1] = black,
---     [2] = red_dark,
---     [3] = green_dark,
---     [4] = orange,
---     [5] = blue,
---     [6] = magenta_dark,
---     [7] = teal,
---     [8] = gray,
---     [9] = gray_dark,
---     [10] = red,
---     [11] = green,
---     [12] = yellow,
---     [13] = turqoise,
---     [14] = purple,
---     [15] = cyan,
---     [16] = gray_light
--- }
+-- local terminal_colors = {}
+local terminal_colors = {
+    [1] = black,
+    [2] = red_dark,
+    [3] = green_dark,
+    [4] = orange,
+    [5] = blue,
+    [6] = magenta_dark,
+    [7] = teal,
+    [8] = gray,
+    [9] = gray_dark,
+    [10] = red,
+    [11] = green,
+    [12] = yellow,
+    [13] = turqoise,
+    [14] = purple,
+    [15] = cyan,
+    [16] = gray_light
+}
 
 --[[ Step 5: Sourcing
 When you wish to load your colorscheme, simply add this folder with a plugin manager
