@@ -817,8 +817,13 @@ local highlight_groups = {
     TelescopePreviewTitle = {fg = red, bg = black},
     -- TelescopePreviewBorder = {}
     -- results
-    TelescopeResultsTitle = {fg = red, bg = black}
+    TelescopeResultsTitle = {fg = red, bg = black},
     -- TelescopeSelection = {}
+    TelescopeMultiIcon = {fg = red, bg = black},
+    -- [[ 4.4.19. nvim-web-devicons ]]
+    DevIconLua = {guifg = red},
+    LuaDevIcon = {guifg = red},
+    IconNameDevicon = {guifg=red},
 }
 
 --[[ Step 5: Terminal Colors
