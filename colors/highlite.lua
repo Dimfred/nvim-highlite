@@ -104,7 +104,7 @@ NOTE: /As long as you do not remove any highlight groups or colors/, you can
       automatically be defining the rest of the highlights, which is one of
       the benefits of using this template.
 ]]
-local black = {"#0d0d0d", 0, "black"}
+local black = {"#0a0a0a", 0, "black"}
 local gray = {"#808080", 0, "grey"}
 local yellow = {"#FAF607", 0, "yellow"}
 local orange = {"#ff8900", 208, "darkyellow"}
@@ -158,6 +158,7 @@ local highlight_groups = {
   NonText = {fg = gray},
   EndOfBuffer = "NonText",
   Whitespace = "NonText",
+  MsgArea = {fg = red, bg = black},
   --[[ 4.1.1. Literals]]
   Constant = {fg = red},
   String = {fg = orange, style = "bold"},
@@ -809,19 +810,19 @@ local highlight_groups = {
   TelescopePromptNormal = {fg = red, bg = black},
   TelescopePromptTitle = {fg = red, bg = black},
   -- TelescopePromptBorder = {fg=red},
-  -- TelescopePromptPrefix = {}
+  TelescopePromptPrefix = {fg = yellow},
   -- preview
   TelescopePreviewNormal = {},
   TelescopePreviewTitle = {fg = red, bg = black},
   -- TelescopePreviewBorder = {}
   -- results
   TelescopeResultsTitle = {fg = red, bg = black},
+  TelescopeResultsComment = {fg = red, bg = black},
+  TelescopeResultsSpecialComment = {fg = red, bg = black},
+  TelescopeResultsDiffUntracked = {fg = red, bg = black},
+  TelescopeResultsLineNr = {fg = red, bg = black},
   -- TelescopeSelection = {}
-  TelescopeMultiIcon = {fg = red, bg = black},
-  -- [[ 4.4.19. nvim-web-devicons ]]
-  DevIconLua = {guifg = red},
-  LuaDevIcon = {guifg = red},
-  IconNameDevicon = {guifg = red}
+  TelescopeMultiIcon = {fg = red, bg = black}
 }
 
 --[[ Step 5: Terminal Colors
