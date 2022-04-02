@@ -260,6 +260,7 @@ local highlight_groups = {
   MatchParen = {fg = green, style = {"bold", "underline"}},
   Search = {fg = black, bg = red, style = "bold"},
   IncSearch = "Search",
+  Searchlight = { fg = black, bg=yellow, style="bold"},
   --[[ 4.2.8. Spelling]]
   SpellBad = {style = {"undercurl", color = red}},
   SpellCap = {style = {"undercurl", color = yellow}},
