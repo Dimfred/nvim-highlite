@@ -260,7 +260,7 @@ local highlight_groups = {
   MatchParen = {fg = green, style = {"bold", "underline"}},
   Search = {fg = black, bg = red, style = "bold"},
   IncSearch = "Search",
-  Searchlight = { fg = black, bg=yellow, style="bold"},
+  Searchlight = {fg = black, bg = yellow, style = "bold"},
   --[[ 4.2.8. Spelling]]
   SpellBad = {style = {"undercurl", color = red}},
   SpellCap = {style = {"undercurl", color = yellow}},
@@ -823,7 +823,9 @@ local highlight_groups = {
   TelescopeResultsDiffUntracked = {fg = red, bg = black},
   TelescopeResultsLineNr = {fg = red, bg = black},
   -- TelescopeSelection = {}
-  TelescopeMultiIcon = {fg = red, bg = black}
+  TelescopeMultiIcon = {fg = red, bg = black},
+  --[[ 4.4.20 clever-f.vim ]]
+  CleverFMarkChar = {fg = black, bg = red}
 }
 
 --[[ Step 5: Terminal Colors
