@@ -825,7 +825,52 @@ local highlight_groups = {
   -- TelescopeSelection = {}
   TelescopeMultiIcon = {fg = red, bg = black},
   --[[ 4.4.20 clever-f.vim ]]
-  CleverFMarkChar = {fg = black, bg = red}
+  CleverFMarkChar = {fg = black, bg = red},
+  -- Noice
+  -- NoiceCmdline = {}, -- 	MsgArea	Normal for the classic cmdline area at the bottom"
+  -- NoiceCmdlineIcon = {}, -- DiagnosticSignInfo	Cmdline icon
+  -- NoiceCmdlineIconCmdline = {}, -- 	DiagnosticSignInfo
+  -- NoiceCmdlineIconFilter = {}, -- 	DiagnosticSignInfo
+  -- NoiceCmdlineIconLua = {}, --	DiagnosticSignInfo
+  -- NoiceCmdlineIconSearch = {}, --	DiagnosticSignWarn	Cmdline search icon (/ and ?)
+  -- NoiceCmdlinePopup = {}, --	Normal	Normal for the cmdline popup
+  -- NoiceCmdlinePopupBorder = {}, --	DiagnosticSignInfo	Cmdline popup border
+  -- NoiceCmdlinePopupBorderCmdline = {}, --	DiagnosticSignInfo
+  -- NoiceCmdlinePopupBorderFilter = {}, --	DiagnosticSignInfo
+  -- NoiceCmdlinePopupBorderLua = {}, --	DiagnosticSignInfo
+  -- NoiceCmdlinePopupBorderSearch = {}, --	DiagnosticSignWarn	Cmdline popup border for search
+  -- NoiceConfirm = {}, --	Normal	Normal for the confirm view
+  -- NoiceConfirmBorder = {}, --	DiagnosticSignInfo	Border for the confirm view
+  -- NoiceCursor = {}, --	Cursor	Fake Cursor
+  -- NoiceFormatConfirm = {}, --	CursorLine
+  -- NoiceFormatConfirmDefault = {}, --	Visual
+  -- NoiceFormatDate = {}, --	Special
+  -- NoiceFormatEvent = {}, --	NonText
+  -- NoiceFormatKind = {}, --	NonText
+  -- NoiceFormatLevelDebug = {}, --	NonText
+  -- NoiceFormatLevelError = {}, --	DiagnosticVirtualTextError
+  -- NoiceFormatLevelInfo = {}, --	DiagnosticVirtualTextInfo
+  -- NoiceFormatLevelOff = {}, --	NonText
+  -- NoiceFormatLevelTrace = {}, --	NonText
+  -- NoiceFormatLevelWarn = {}, --	DiagnosticVirtualTextWarn
+  -- NoiceFormatProgressDone = {}, --	Search	Progress bar done
+  -- NoiceFormatProgressTodo = {}, --	CursorLine	progress bar todo
+  -- NoiceFormatTitle = {}, --	Title
+  -- NoiceLspProgressClient = {}, --	Title	Lsp progress client name
+  -- NoiceLspProgressSpinner = {}, --	Constant	Lsp progress spinner
+  -- NoiceLspProgressTitle = {}, --	NonText	Lsp progress title
+  -- NoiceMini = {}, --	MsgArea	Normal for mini view
+  -- NoicePopup = {}, --	NormalFloat	Normal for popup views
+  -- NoicePopupBorder = {}, --	FloatBorder	Border for popup views
+  -- NoicePopupmenu = {}, --	Pmenu	Normal for the popupmenu
+  -- NoicePopupmenuBorder = {}, --	FloatBorder	Popupmenu border
+  -- NoicePopupmenuMatch = {}, --	Special	Part of the item that matches the input
+  -- NoicePopupmenuSelected = {}, --	PmenuSel	Selected item in the popupmenu
+  -- NoiceScrollbar = {}, --	PmenuSbar	Normal for scrollbar
+  -- NoiceScrollbarThumb = {}, --	PmenuThumb	Scrollbar thumb
+  -- NoiceSplit = {}, --	NormalFloat	Normal for split views
+  -- NoiceSplitBorder = {}, --	FloatBorder	Border for split views
+  -- NoiceVirtualText = {} --	DiagnosticVirtualTextInfo	Default hl group for virtualtext views
 }
 
 --[[ Step 5: Terminal Colors
